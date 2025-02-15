@@ -1,0 +1,4 @@
+# Ignore all zig-out folders in the project
+**/zig-out/
+# Ignore all zig cache folders
+**/.zig-cache/
