@@ -2,3 +2,5 @@
 **/zig-out/
 # Ignore all zig cache folders
 **/.zig-cache/
+# Ignore all input files
+**/resources/
