@@ -19,7 +19,14 @@ pub fn main() !void {
     const input = try std.fs.cwd().readFileAlloc(allocator, file_path, file_size);
     defer allocator.free(input);
 
-    const solution = try lib.solvePartOne(allocator, input);
+    const lists = try lib.processColumns(allocator, input);
+    defer lists.deinit();
 
-    try stdout.print("Solution to part one: {}\n", .{solution});
+    const solution_one = lib.solvePartOne(lists);
+
+    try stdout.print("Solution to part one: {}\n", .{solution_one});
+
+    const solution_two = try lib.solvePartTwo(allocator, lists);
+
+    try stdout.print("Solution to part two: {}\n", .{solution_two});
 }
